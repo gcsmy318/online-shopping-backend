@@ -1,0 +1,242 @@
+[
+  {
+    "id": "p1",
+    "name": "Smartphone",
+    "code": "electronics",
+    "info": "Latest model with high-speed processor.",
+    "price": 699.99,
+    "image": "/images/smartphone.jpg"
+  },
+  {
+    "id": "p2",
+    "name": "Leather Jacket",
+    "code": "fashion",
+    "info": "Premium quality leather jacket.",
+    "price": 120.00,
+    "image": "/images/leather-jacket.jpg"
+  },
+  {
+    "id": "p3",
+    "name": "Bluetooth Speaker",
+    "code": "electronics",
+    "info": "Portable speaker with deep bass.",
+    "price": 49.99,
+    "image": "/images/bluetooth-speaker.jpg"
+  },
+  {
+    "id": "p4",
+    "name": "Fiction Book - The Great Adventure",
+    "code": "books",
+    "info": "An inspiring tale of adventure and discovery.",
+    "price": 15.50,
+    "image": "/images/great-adventure.jpg"
+  },
+  {
+    "id": "p5",
+    "name": "Electric Kettle",
+    "code": "home",
+    "info": "Boils water in seconds with auto shut-off.",
+    "price": 30.00,
+    "image": "/images/electric-kettle.jpg"
+  },
+  {
+    "id": "p6",
+    "name": "Sneakers",
+    "code": "fashion",
+    "info": "Comfortable and stylish running shoes.",
+    "price": 89.99,
+    "image": "/images/sneakers.jpg"
+  },
+  {
+    "id": "p7",
+    "name": "Gaming Mouse",
+    "code": "electronics",
+    "info": "High-precision gaming mouse with RGB lighting.",
+    "price": 39.99,
+    "image": "/images/gaming-mouse.jpg"
+  },
+  {
+    "id": "p8",
+    "name": "Desk Lamp",
+    "code": "home",
+    "info": "LED lamp with adjustable brightness.",
+    "price": 25.00,
+    "image": "/images/desk-lamp.jpg"
+  },
+  {
+    "id": "p9",
+    "name": "Non-Fiction Book - Science Explained",
+    "code": "books",
+    "info": "Understand science in a simple way.",
+    "price": 20.00,
+    "image": "/images/science-explained.jpg"
+  },
+  {
+    "id": "p10",
+    "name": "Smart TV 50 inch",
+    "code": "electronics",
+    "info": "4K UHD Smart TV with streaming apps.",
+    "price": 499.99,
+    "image": "/images/smart-tv.jpg"
+  },
+  {
+    "id": "p11",
+    "name": "Handbag",
+    "code": "fashion",
+    "info": "Stylish handbag with multiple compartments.",
+    "price": 45.99,
+    "image": "/images/handbag.jpg"
+  },
+  {
+    "id": "p12",
+    "name": "Cookware Set",
+    "code": "home",
+    "info": "Non-stick cookware set for every kitchen.",
+    "price": 85.00,
+    "image": "/images/cookware-set.jpg"
+  },
+  {
+    "id": "p13",
+    "name": "Wireless Earbuds",
+    "code": "electronics",
+    "info": "Noise-canceling earbuds with long battery life.",
+    "price": 79.99,
+    "image": "/images/wireless-earbuds.jpg"
+  },
+  {
+    "id": "p14",
+    "name": "Men's T-shirt",
+    "code": "fashion",
+    "info": "100% cotton comfortable t-shirt.",
+    "price": 15.00,
+    "image": "/images/mens-tshirt.jpg"
+  },
+  {
+    "id": "p15",
+    "name": "Bookshelf",
+    "code": "home",
+    "info": "Wooden bookshelf with modern design.",
+    "price": 120.00,
+    "image": "/images/bookshelf.jpg"
+  },
+  {
+    "id": "p16",
+    "name": "Cooking Book - Master Chef Recipes",
+    "code": "books",
+    "info": "Learn to cook like a master chef.",
+    "price": 35.00,
+    "image": "/images/cooking-book.jpg"
+  },
+  {
+    "id": "p17",
+    "name": "Smartwatch",
+    "code": "electronics",
+    "info": "Track your fitness and receive notifications.",
+    "price": 199.99,
+    "image": "/images/smartwatch.jpg"
+  },
+  {
+    "id": "p18",
+    "name": "Running Shoes",
+    "code": "fashion",
+    "info": "Durable shoes for daily running.",
+    "price": 75.00,
+    "image": "/images/running-shoes.jpg"
+  },
+  {
+    "id": "p19",
+    "name": "Vacuum Cleaner",
+    "code": "home",
+    "info": "Powerful vacuum cleaner with HEPA filter.",
+    "price": 150.00,
+    "image": "/images/vacuum-cleaner.jpg"
+  },
+  {
+    "id": "p20",
+    "name": "Laptop Stand",
+    "code": "electronics",
+    "info": "Ergonomic laptop stand for better posture.",
+    "price": 29.99,
+    "image": "/images/laptop-stand.jpg"
+  },
+  {
+    "id": "p21",
+    "name": "Formal Shirt",
+    "code": "fashion",
+    "info": "Slim fit formal shirt for office wear.",
+    "price": 40.00,
+    "image": "/images/formal-shirt.jpg"
+  },
+  {
+    "id": "p22",
+    "name": "Bedside Table",
+    "code": "home",
+    "info": "Compact and stylish bedside table.",
+    "price": 55.00,
+    "image": "/images/bedside-table.jpg"
+  },
+  {
+    "id": "p23",
+    "name": "Children's Story Book",
+    "code": "books",
+    "info": "Fun and educational stories for kids.",
+    "price": 18.00,
+    "image": "/images/story-book.jpg"
+  },
+  {
+    "id": "p24",
+    "name": "Noise Cancelling Headphones",
+    "code": "electronics",
+    "info": "Over-ear headphones with active noise cancellation.",
+    "price": 299.99,
+    "image": "/images/noise-cancelling-headphones.jpg"
+  },
+  {
+    "id": "p25",
+    "name": "Denim Jeans",
+    "code": "fashion",
+    "info": "Classic denim jeans with a modern fit.",
+    "price": 50.00,
+    "image": "/images/denim-jeans.jpg"
+  },
+  {
+    "id": "p26",
+    "name": "Air Fryer",
+    "code": "home",
+    "info": "Healthy cooking with minimal oil usage.",
+    "price": 99.00,
+    "image": "/images/air-fryer.jpg"
+  },
+  {
+    "id": "p27",
+    "name": "E-Reader",
+    "code": "electronics",
+    "info": "Read books digitally with a glare-free screen.",
+    "price": 129.99,
+    "image": "/images/e-reader.jpg"
+  },
+  {
+    "id": "p28",
+    "name": "Sunglasses",
+    "code": "fashion",
+    "info": "UV protection stylish sunglasses.",
+    "price": 35.00,
+    "image": "/images/sunglasses.jpg"
+  },
+  {
+    "id": "p29",
+    "name": "Microwave Oven",
+    "code": "home",
+    "info": "Multi-function microwave with grill option.",
+    "price": 180.00,
+    "image": "/images/microwave.jpg"
+  },
+  {
+    "id": "p30",
+    "name": "Self-Help Book - Success Mindset",
+    "code": "books",
+    "info": "Develop a mindset for success.",
+    "price": 25.00,
+    "image": "/images/success-mindset.jpg"
+  }
+]
