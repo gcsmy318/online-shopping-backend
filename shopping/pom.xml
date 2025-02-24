@@ -30,6 +30,7 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
+		
 		<!-- Jackson for JSON parsing -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
