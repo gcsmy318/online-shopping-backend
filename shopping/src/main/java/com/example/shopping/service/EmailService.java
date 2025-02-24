@@ -32,21 +32,26 @@ public class EmailService {
             System.out.println("✅ อีเมลถูกส่งไปยัง: " + toEmail);
 
         } catch (MessagingException e) {
-            System.out.println("❌ ส่งอีเมลล้มเหลว: " + e.getMessage());
+            System.err.println("❌ ส่งอีเมลล้มเหลว: " + e.getMessage());
             e.printStackTrace();
         }
     }
 
     private String buildEmailContent(Map<String, Object> orderData) {
-        String name = (String) orderData.get("name");
-        String address = (String) orderData.get("address");
-        String phone = (String) orderData.get("phone");
+        if (orderData == null || !orderData.containsKey("cart")) {
+            return "<p>❌ ไม่มีข้อมูลคำสั่งซื้อ</p>";
+        }
+
+        String name = (String) orderData.getOrDefault("name", "ไม่ระบุ");
+        String address = (String) orderData.getOrDefault("address", "ไม่ระบุ");
+        String phone = (String) orderData.getOrDefault("phone", "ไม่ระบุ");
+
         List<Map<String, Object>> cart = (List<Map<String, Object>>) orderData.get("cart");
 
-        // ✅ แปลง totalPrice ให้เป็น Double แบบปลอดภัย
-        double totalPrice = orderData.get("totalPrice") instanceof Integer
-                ? ((Integer) orderData.get("totalPrice")).doubleValue()
-                : (double) orderData.get("totalPrice");
+        double totalPrice = 0.0;
+        if (orderData.get("totalPrice") instanceof Number) {
+            totalPrice = ((Number) orderData.get("totalPrice")).doubleValue();
+        }
 
         StringBuilder emailContent = new StringBuilder();
         emailContent.append("<h2>📦 ข้อมูลคำสั่งซื้อ </h2>");
@@ -58,32 +63,30 @@ public class EmailService {
         emailContent.append("<tr><th>รูปสินค้า</th><th>ชื่อสินค้า</th><th>ID</th><th>ราคา</th><th>จำนวน</th><th>รวม</th></tr>");
 
         for (Map<String, Object> item : cart) {
-            String id = (String) item.get("id");
-            String nameItem = (String) item.get("name");
-            String image = (String) item.get("image");
+            String id = (String) item.getOrDefault("id", "ไม่ระบุ");
+            String nameItem = (String) item.getOrDefault("name", "ไม่ระบุ");
+            String image = (String) item.getOrDefault("image", "ไม่พบรูป");
 
-            // ✅ แปลง price ให้เป็น Double แบบปลอดภัย
-            double price = item.get("price") instanceof Integer
-                    ? ((Integer) item.get("price")).doubleValue()
-                    : (double) item.get("price");
+            double price = 0.0;
+            if (item.get("price") instanceof Number) {
+                price = ((Number) item.get("price")).doubleValue();
+            }
 
-            int quantity = (int) item.get("quantity");
+            int quantity = item.get("quantity") instanceof Number ? ((Number) item.get("quantity")).intValue() : 0;
             double totalItemPrice = price * quantity;
 
             emailContent.append("<tr>")
                     .append("<td><img src='").append(image).append("' width='50'></td>")
                     .append("<td>").append(nameItem).append("</td>")
                     .append("<td>").append(id).append("</td>")
-                    .append("<td>$").append(price).append("</td>")
+                    .append("<td>$").append(String.format("%.2f", price)).append("</td>")
                     .append("<td>").append(quantity).append("</td>")
-                    .append("<td>$").append(totalItemPrice).append("</td>")
+                    .append("<td>$").append(String.format("%.2f", totalItemPrice)).append("</td>")
                     .append("</tr>");
         }
 
         emailContent.append("</table>");
-        emailContent.append("<h3>💰 ราคารวมทั้งหมด: $").append(totalPrice).append("</h3>");
+        emailContent.append("<h3>💰 ราคารวมทั้งหมด: $").append(String.format("%.2f", totalPrice)).append("</h3>");
         return emailContent.toString();
     }
-
-
 }
