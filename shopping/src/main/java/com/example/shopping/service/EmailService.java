@@ -18,7 +18,7 @@ public class EmailService {
 
     public void sendOrderConfirmation(String toEmail, Map<String, Object> orderData) {
         try {
-            String subject = "📦 มีคำสั่งซื้อบนเว็บไซด์ Ilamoon";
+            String subject = "📦 มีคำสั่งซื้อใหม่จาก Ilamoon";
             String body = buildEmailContent(orderData);
 
             MimeMessage message = mailSender.createMimeMessage();
@@ -26,7 +26,7 @@ public class EmailService {
 
             helper.setTo(toEmail);
             helper.setSubject(subject);
-            helper.setText(body, true); // ใช้ HTML
+            helper.setText(body, true); // ✅ ใช้ HTML ในอีเมล
 
             mailSender.send(message);
             System.out.println("✅ อีเมลถูกส่งไปยัง: " + toEmail);
@@ -54,18 +54,24 @@ public class EmailService {
         }
 
         StringBuilder emailContent = new StringBuilder();
-        emailContent.append("<h2>📦 ข้อมูลคำสั่งซื้อ </h2>");
-        emailContent.append("<p>👤 ชื่อ: <strong>").append(name).append("</strong></p>");
-        emailContent.append("<p>📍 ที่อยู่: <strong>").append(address).append("</strong></p>");
-        emailContent.append("<p>📞 เบอร์โทร: <strong>").append(phone).append("</strong></p>");
+        emailContent.append("<h2>📦 ข้อมูลคำสั่งซื้อ</h2>");
+        emailContent.append("<p>👤 <strong>ชื่อ:</strong> ").append(name).append("</p>");
+        emailContent.append("<p>📍 <strong>ที่อยู่:</strong> ").append(address).append("</p>");
+        emailContent.append("<p>📞 <strong>เบอร์โทร:</strong> ").append(phone).append("</p>");
 
+        // ✅ เพิ่มตารางแสดงรายการสินค้า + รูปภาพสินค้า
         emailContent.append("<table border='1' cellpadding='5' cellspacing='0' style='border-collapse: collapse; width: 100%;'>");
-        emailContent.append("<tr><th>รูปสินค้า</th><th>ชื่อสินค้า</th><th>ID</th><th>ราคา</th><th>จำนวน</th><th>รวม</th></tr>");
+        emailContent.append("<tr><th>รูปสินค้า</th><th>ชื่อสินค้า</th><th>รหัสสินค้า</th><th>ราคา</th><th>จำนวน</th><th>รวม</th></tr>");
 
         for (Map<String, Object> item : cart) {
             String id = (String) item.getOrDefault("id", "ไม่ระบุ");
             String nameItem = (String) item.getOrDefault("name", "ไม่ระบุ");
-            String image = (String) item.getOrDefault("image", "ไม่พบรูป");
+            String image = (String) item.getOrDefault("image", "https://online-shopping-frontend-beta.vercel.app/images/default.png");
+
+            // ✅ ถ้า URL ไม่ขึ้นต้นด้วย "http" ให้เติมโฮสต์หลักให้
+            if (!image.startsWith("http")) {
+                image = "https://online-shopping-frontend-beta.vercel.app" + image;
+            }
 
             double price = 0.0;
             if (item.get("price") instanceof Number) {
@@ -76,17 +82,19 @@ public class EmailService {
             double totalItemPrice = price * quantity;
 
             emailContent.append("<tr>")
-                    .append("<td><img src='").append(image).append("' width='100' height='100'></td>")
+                    .append("<td><img src='").append(image).append("' width='80' height='80' style='border-radius: 8px;'></td>")
                     .append("<td>").append(nameItem).append("</td>")
                     .append("<td>").append(id).append("</td>")
-                    .append("<td>$").append(String.format("%.2f", price)).append("</td>")
+                    .append("<td>").append(String.format("%.2f", price)).append("฿</td>")
                     .append("<td>").append(quantity).append("</td>")
-                    .append("<td>$").append(String.format("%.2f", totalItemPrice)).append("</td>")
+                    .append("<td>").append(String.format("%.2f", totalItemPrice)).append("฿</td>")
                     .append("</tr>");
         }
 
         emailContent.append("</table>");
-        emailContent.append("<h3>💰 ราคารวมทั้งหมด: $").append(String.format("%.2f", totalPrice)).append("</h3>");
+        emailContent.append("<h3>💰 <strong>ราคารวมทั้งหมด:</strong> ").append(String.format("%.2f", totalPrice)).append("฿</h3>");
+        emailContent.append("<p>ขอบคุณที่สั่งซื้อกับเรา! 😊</p>");
+
         return emailContent.toString();
     }
 }
