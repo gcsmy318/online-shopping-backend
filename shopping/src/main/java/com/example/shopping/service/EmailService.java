@@ -26,7 +26,7 @@ public class EmailService {
 
             helper.setTo(toEmail);
             helper.setSubject(subject);
-            helper.setText(body, true); // ✅ ใช้ HTML
+            helper.setText(body, true); // ใช้ HTML
 
             mailSender.send(message);
             System.out.println("✅ อีเมลถูกส่งไปยัง: " + toEmail);
@@ -76,7 +76,7 @@ public class EmailService {
             double totalItemPrice = price * quantity;
 
             emailContent.append("<tr>")
-                    .append("<td><img src='").append(image).append("' width='50'></td>")
+                    .append("<td><img src='").append(image).append("' width='100' height='100'></td>")
                     .append("<td>").append(nameItem).append("</td>")
                     .append("<td>").append(id).append("</td>")
                     .append("<td>$").append(String.format("%.2f", price)).append("</td>")
